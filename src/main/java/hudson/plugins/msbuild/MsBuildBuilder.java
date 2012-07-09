@@ -146,7 +146,7 @@ public class MsBuildBuilder extends Builder {
         listener.getLogger().println("Executing command: " + args.toStringWithQuote());
 
         try {
-            int r = launcher.launch().cmds(args).envs(env).stdout(listener).pwd(build.getModuleRoot()).join();
+            int r = launcher.launch().cmds(args).envs(env).stdout(listener).pwd(build.getWorkspace()).join();
 
             return r == 0;
         } catch (IOException e) {
